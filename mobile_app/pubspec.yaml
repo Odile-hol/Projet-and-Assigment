@@ -1,0 +1,25 @@
+name: flutter_application_3
+description: Calculateur de notes étudiant et Smart Campus Safety
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_fonts: ^6.1.0
+  fl_chart: ^0.66.0
+  animations: ^2.0.11
+  file_picker: ^8.0.0
+  spreadsheet_decoder: ^2.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+# C'EST ICI QUE SE FAIT LA MAGIE POUR LES ICÔNES
+flutter:
+  uses-material-design: true
