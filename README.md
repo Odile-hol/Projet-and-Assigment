@@ -1,4 +1,4 @@
-# 🎓 Portfolio de Développement Mobile & IA (Session 2026)
+# 🎓 Portfolio de Développement Mobile 
 
 Bienvenue dans mon dépôt principal regroupant mes travaux de programmation Dart/Flutter, allant des bases algorithmiques au projet de sécurité intelligente. Ce dépôt démontre une progression complète : de l'apprentissage des fondamentaux à la conception d'une solution complexe intégrant l'IA.
 
@@ -35,7 +35,7 @@ Ce dépôt est organisé en trois sections majeures pour faciliter la revue par 
 
 ## 🛠️ Technologies & Frameworks
 - **Langage principal :** Dart 🎯
-- **Framework :** Flutter (Multiplateforme iOS/Android)
+- **Framework :** Flutter
 - **Bibliothèques clés :** `fl_chart`, `excel_parser`, `geolocator`.
 - **IA :** Analyse de signaux sonores et accélérométriques pour le score de confiance.
 
