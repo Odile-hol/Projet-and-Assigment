@@ -1,0 +1,9 @@
+flask
+werkzeug
+numpy
+pandas
+librosa
+opencv-python
+torch
+transformers
+weaviate-client

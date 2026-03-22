@@ -1,0 +1,68 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+env/
+.venv/
+venv/
+ENV/
+
+# Build and packaging artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Test and tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Editor/OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local environment and secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Runtime/temp files
+*.log
+*.tmp
+*.temp
+
+# Uploads/generated media files
+upload_*.mp4
+upload_*.avi
+upload_*.mov
+upload_*.mkv
+upload_*.wav
+upload_*.mp3
+upload_*.flac
+safecall_*
+
+# Ignore all local media binaries
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wav
+*.mp3
+*.flac
+
+# Local media datasets (large files)
+violent/
+non-violent/
+
+# Model/data caches
+.huggingface/
+.cache/
