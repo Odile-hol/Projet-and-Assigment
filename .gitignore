@@ -1,43 +1,68 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
 
-# dependencies
-node_modules/
+# Virtual environments
+env/
+.venv/
+venv/
+ENV/
 
-# Expo
-.expo/
+# Build and packaging artifacts
+build/
 dist/
-web-build/
-expo-env.d.ts
+*.egg-info/
+.eggs/
 
-# Native
-.kotlin/
-*.orig.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
+# Test and tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
 
-# Metro
-.metro-health-check*
-
-# debug
-npm-debug.*
-yarn-debug.*
-yarn-error.*
-
-# macOS
+# Editor/OS files
+.vscode/
+.idea/
 .DS_Store
+Thumbs.db
+
+# Local environment and secrets
+.env
+.env.*
 *.pem
+*.key
 
-# local env files
-.env*.local
+# Runtime/temp files
+*.log
+*.tmp
+*.temp
 
-# typescript
-*.tsbuildinfo
+# Uploads/generated media files
+upload_*.mp4
+upload_*.avi
+upload_*.mov
+upload_*.mkv
+upload_*.wav
+upload_*.mp3
+upload_*.flac
+safecall_*
 
-app-example
+# Ignore all local media binaries
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wav
+*.mp3
+*.flac
 
-# generated native folders
-/ios
-/android
+# Local media datasets (large files)
+violent/
+non-violent/
+
+# Model/data caches
+.huggingface/
+.cache/
