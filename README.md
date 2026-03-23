@@ -1,117 +1,36 @@
-# SafeCall Backend
+# 🛡️ Module SafeCall - Tests de Fiabilité et Robustesse
 
-Safecall is a mobile application designed to provide intelligent personal safety by automatically detecting and managing critical situations such as physical assaults, strokes, and severe medical emergencies.
+Ce module regroupe l'ensemble des tests automatisés pour garantir le fonctionnement critique de l'application **SafeCall** (Microphone, GPS, Batterie, Performance).
 
-API Flask de classification video/audio basee sur recherche vectorielle Weaviate.
+## 🚀 Objectifs du Projet
+L'objectif est de valider l'accès aux capteurs et le comportement de l'application dans des conditions dégradées, en suivant les principes de la **Clean Architecture** (découplage total du code partenaire).
 
-## Fonctionnalites
+---
 
-- Vectorisation audio avec Wav2Vec2.
-- Vectorisation video avec CLIP.
-- Indexation Weaviate dans 2 collections:
-  - VideoEmbeddings
-  - AudioEmbeddings
-- Classification par similarite (k-NN) avec sortie detaillee:
-  - action_class
-  - predicted_type
-  - violence_classification
-  - confidence
-  - search_results complets
+## 🧪 Stratégie de Test (4 Niveaux)
 
-## Prerequis
+### 1. Tests Unitaires (`SafeCallUnitTests.kt`)
+* Vérification de l'initialisation du flux **Audio**.
+* Validation de la détection des capteurs **GPS** et **Caméra**.
 
-- Python 3.10+
-- Docker + Docker Compose
-- ffmpeg installe sur la machine (accessible en ligne de commande)
+### 2. Tests de Robustesse (`SafeCallRobustnessTest.kt`)
+* **Gestion du Réseau :** Comportement en "Zone Blanche" (absence de signal GPS).
+* **Gestion de l'Énergie :** Passage automatique en mode économie si la batterie est < 5%.
+* **Protection Stockage :** Prévention des crashs si la mémoire du téléphone est saturée.
 
-## Installation
+### 3. Tests de Performance (`SafeCallPerformanceTests.kt`)
+* **Latence :** Déclenchement de l'alerte en moins de **500ms**.
+* **Anti-Spam :** Protection contre les clics multiples accidentels sur le bouton d'urgence.
 
-1. Creer/activer un environnement virtuel.
-2. Installer les dependances Python:
+### 4. Tests d'Intégration (`SafeCallIntegrationTests.kt`)
+* Validation du format d'échange de données entre mon module et le module principal (Binôme).
 
-```bash
-pip install -r requirement.txt
-```
+---
 
-## Structure importante
+## 🛠️ Installation et Exécution
+1. Ouvrir le projet sous **Android Studio**.
+2. Naviguer vers : `android/app/src/test/java/com/anonymous/safecall/unit_tests/`.
+3. Clic droit sur le dossier et sélectionner **"Run All Tests"**.
 
-- safecallback.py: API Flask (classification)
-- weaviate1.py: ingestion dataset vers Weaviate
-- docker-compose.yml: services Weaviate
-- violent-action-classes.csv
-- nonviolent-action-classes.csv
-- action-class-occurrences.csv
-
-## Lancer le projet
-
-### 1) Demarrer Weaviate
-
-```bash
-docker-compose up -d
-```
-
-### 2) Ingerer les donnees dans Weaviate
-
-```bash
-python weaviate1.py
-```
-
-### 3) Demarrer l'API
-
-```bash
-python safecallback.py
-```
-
-API disponible sur:
-
-- http://localhost:5000
-
-## Utilisation de l'API
-
-### Health check
-
-```bash
-curl.exe "http://localhost:5000/health"
-```
-
-### Classifier un fichier video/audio
-
-```bash
-curl.exe -X POST "http://localhost:5000/classify-action" -F "file=@C:/chemin/vers/fichier.mp4"
-```
-
-### Endpoint alternatif (meme logique)
-
-```bash
-curl.exe -X POST "http://localhost:5000/classify" -F "file=@C:/chemin/vers/fichier.mp4"
-```
-
-## Exemple de reponse
-
-```json
-{
-  "success": true,
-  "file": "exemple.mp4",
-  "action_class": "fight",
-  "predicted_type": "violent",
-  "violence_classification": "violent",
-  "confidence": 0.86,
-  "search_results": [
-    {
-      "source_collection": "VideoEmbeddings",
-      "file": "violent/cam1/xxx.mp4",
-      "action": "fight",
-      "type": "violent",
-      "distance": 0.15,
-      "similarity": 0.86
-    }
-  ],
-  "total_request_time_seconds": 4.9
-}
-```
-
-## Notes
-
-- Le premier appel peut etre plus lent (chargement modele).
-- Si CUDA est disponible, PyTorch peut utiliser le GPU.
-- Les fichiers uploades ne sont pas inseres dans Weaviate pendant la classification.
+## 📈 Indépendance Logicielle
+Ce dossier a été conçu pour être **100% testable indépendamment** du reste du projet, permettant une maintenance simplifiée même si le code global évolue.
