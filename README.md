@@ -31,8 +31,7 @@ Scripts Dart individuels couvrant les piliers du langage :
 
 ## 🛠️ Technologies & Frameworks
 
-* **Langage :** Dart 🎯
-* **Framework :** Flutter 
+* **Langage :** KOTlin 🎯
 * **Bibliothèques clés :** * `fl_chart` (Visualisation de données)
     * `excel` (Parsing de fichiers Excel)
     * `geolocator` (Géolocalisation)
